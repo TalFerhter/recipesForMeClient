@@ -1,25 +1,73 @@
 import logo from './logo.svg';
 import './App.css';
+import UploadFile from './components/UploadFile'
+import WordsList from './components/WordsList';
+import PhrasesList from './components/PhrasesList';
+import HomePage from './components/HomePage';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/WordsList">Words</Link>
+            </li>
+            <li>
+              <Link to="/PhrasesList">Phrases</Link>
+            </li>
+            <li>
+              <Link to="/UploadFile">Recipes</Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/WordsList">
+            <WordsList />
+          </Route>
+          <Route path="/PhrasesList">
+            <PhrasesList />
+          </Route>
+          <Route path="/UploadFile">
+            <UploadFile />
+          </Route>
+          <Route path="/">
+            <HomePage />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
+}
+
+function Home() {
+  return <h2>Home</h2>;
+}
+
+function Words() {
+  return <h2>Words</h2>;
+}
+
+function Phrases() {
+  return <h2>Phrases</h2>;
+}
+
+function Recipes() {
+  return <h2>Recipes</h2>;
 }
 
 export default App;

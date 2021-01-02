@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
-import UploadFile from './components/UploadFile'
-import Navbar from './components/Navbar';
-import WordsList from './components/WordsList';
+
 
 ReactDOM.render(
-  <WordsList />, 
+  <div>
+    <App />
+  </div>,
   document.getElementById('root')
 );
 

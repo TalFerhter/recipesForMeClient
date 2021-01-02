@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-const API = 'http://127.0.0.1:8080/words';
+const API = 'http://127.0.0.1:8080/phrases/findPhrase';
 let API_ROUTE = '';
 
-class WordsList extends Component {
+class PhrasesList extends Component {
     constructor(props) {
         super(props);
-        this.state = {  words: [], 
+        this.state = {  phrases: [], 
                         value: ''
                     };
     
@@ -17,10 +17,10 @@ class WordsList extends Component {
         this.setState({value: event.target.value});
       }
 
-    getWords = () => {
+    getPhrases = () => {
         API_ROUTE = API;
         if (this.state.value !== '') {
-            API_ROUTE = API_ROUTE + "?id=" + this.state.value; 
+            API_ROUTE = API_ROUTE + "?text=" + this.state.value; 
         }
         fetch(API_ROUTE)
             .then((res) => {
@@ -32,7 +32,7 @@ class WordsList extends Component {
                 }
             })
             .then(data =>
-                this.setState({words: data})
+                this.setState({phrases: data})
                 )
             .catch(error => this.setState(error));
         }
@@ -40,13 +40,15 @@ class WordsList extends Component {
      render() { 
         return (
             <div>
-                <h4>Search for a word:</h4>
+                <h4>Search for a phrase:</h4>
                 <span><input type="text" value={this.state.value} onChange={this.handleChange}></input></span>
-                <input type="submit" onClick={ this.getWords }></input>
+                <input type="submit" onClick={ this.getPhrases }></input>
                 <div>
                     <ul>
-                        {this.state.words.map(word => (
-                            <li key={word.word}>{word.word}</li>
+                        {this.state.phrases.map(phrase => (
+                            phrase.positions.map(pos => 
+                                <li key={pos.pos_id}>({pos.row},{pos.col}) - {pos.recipe.recipeName}</li>
+                            )
                         ))}
                     </ul>
                 </div>
@@ -55,4 +57,4 @@ class WordsList extends Component {
     }
 }
  
-export default WordsList;
+export default PhrasesList;
