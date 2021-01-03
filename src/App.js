@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import UploadFile from './components/UploadFile'
+import RecipesPage from './components/RecipesPage'
 import WordsList from './components/WordsList';
 import PhrasesList from './components/PhrasesList';
 import HomePage from './components/HomePage';
@@ -28,7 +28,7 @@ function App() {
               <Link to="/PhrasesList">Phrases</Link>
             </li>
             <li>
-              <Link to="/UploadFile">Recipes</Link>
+              <Link to="/RecipesPage">Recipes</Link>
             </li>
           </ul>
         </nav>
@@ -42,8 +42,8 @@ function App() {
           <Route path="/PhrasesList">
             <PhrasesList />
           </Route>
-          <Route path="/UploadFile">
-            <UploadFile />
+          <Route path="/RecipesPage">
+            <RecipesPage />
           </Route>
           <Route path="/">
             <HomePage />

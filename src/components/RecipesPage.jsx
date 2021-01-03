@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import UploadFile from './components/UploadFile'
+import UploadFile from './UploadFile'
 
-class Recipes extends Component {
+class RecipesPage extends Component {
 
     render() { 
         return (
@@ -12,4 +12,4 @@ class Recipes extends Component {
     }
 }
  
-export default Recipes;
+export default RecipesPage;

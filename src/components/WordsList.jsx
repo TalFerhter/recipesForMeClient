@@ -1,17 +1,38 @@
 import React, { Component } from 'react';
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
 
-const API = 'http://127.0.0.1:8080/words';
+const base = 'http://127.0.0.1:8080/';
+const API = base + 'words';
+const recipesAPI = base + 'recipes';
 let API_ROUTE = '';
+
+const animatedComponents = makeAnimated();
 
 class WordsList extends Component {
     constructor(props) {
         super(props);
         this.state = {  words: [], 
-                        value: ''
+                        value: '',
+                        options: []
                     };
     
         this.handleChange = this.handleChange.bind(this);
-      }    
+        fetch(recipesAPI)
+            .then((res) => {
+                if(res.ok){
+                    console.log(res)
+                    return res.json();
+                } else {
+                    throw new Error('Something went wrong...');
+                }
+            })
+            .then(data =>
+                this.setState.state(data.map((recipe)=>(recipe.recipeName)))
+                )
+            .catch(error => this.setState(error));
+        }
+       
 
     handleChange(event) {
         this.setState({value: event.target.value});
@@ -50,6 +71,7 @@ class WordsList extends Component {
                         ))}
                     </ul>
                 </div>
+                <Select closeMenuOnSelect={false} components={animatedComponents} isMulti options={options} />
             </div>
           );
     }
