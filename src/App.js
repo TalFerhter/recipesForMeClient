@@ -1,56 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-import RecipesPage from './components/RecipesPage'
-import WordsList from './components/WordsList';
-import PhrasesList from './components/PhrasesList';
-import HomePage from './components/HomePage';
+import logo from "./logo.svg";
+import "./App.css";
+import RecipesPage from "./components/Recipes/RecipesPage";
+import WordsList from "./components/Words/WordsList";
+import PhrasesList from "./components/Phrases/PhrasesList";
+import HomePage from "./components/HomePage";
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import MainMenu from "./components/MainMenu";
 
 function App() {
   return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/WordsList">Words</Link>
-            </li>
-            <li>
-              <Link to="/PhrasesList">Phrases</Link>
-            </li>
-            <li>
-              <Link to="/RecipesPage">Recipes</Link>
-            </li>
-          </ul>
-        </nav>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/WordsList">
-            <WordsList />
-          </Route>
-          <Route path="/PhrasesList">
-            <PhrasesList />
-          </Route>
-          <Route path="/RecipesPage">
-            <RecipesPage />
-          </Route>
-          <Route path="/">
-            <HomePage />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <div>
+      <MainMenu />
+    </div>
   );
 }
 
