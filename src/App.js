@@ -1,9 +1,5 @@
 import logo from "./logo.svg";
 import "./App.css";
-import RecipesPage from "./components/Recipes/RecipesPage";
-import WordsList from "./components/Words/WordsList";
-import PhrasesList from "./components/Phrases/PhrasesList";
-import HomePage from "./components/HomePage";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import MainMenu from "./components/MainMenu";
