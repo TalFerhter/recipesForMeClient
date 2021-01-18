@@ -1,0 +1,5 @@
+2021/01/10-17:04:09.938 6248 Reusing MANIFEST C:\Users\Tal Fershter\Documents\University\Workshop\Frontend\.vscode\vscode-chrome-debug-userdatadir\Default\IndexedDB\https_www.foodnetwork.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/01/10-17:04:36.617 3da4 Level-0 table #5: started
+2021/01/10-17:04:36.626 3da4 Level-0 table #5: 348 bytes OK
+2021/01/10-17:04:36.633 3da4 Delete type=0 #3
+2021/01/10-17:04:36.634 3da4 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

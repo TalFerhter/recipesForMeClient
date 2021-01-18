@@ -1,0 +1,7 @@
+2021/01/05-16:37:29.167 5454 Reusing MANIFEST C:\Users\Tal Fershter\Documents\University\Workshop\Frontend\.vscode\vscode-chrome-debug-userdatadir\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/01/05-16:37:29.168 5454 Recovering log #3
+2021/01/05-16:37:29.169 5454 Reusing old log C:\Users\Tal Fershter\Documents\University\Workshop\Frontend\.vscode\vscode-chrome-debug-userdatadir\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/000003.log 
+2021/01/05-16:37:31.929 2230 Level-0 table #5: started
+2021/01/05-16:37:31.933 2230 Level-0 table #5: 1459 bytes OK
+2021/01/05-16:37:31.938 2230 Delete type=0 #3
+2021/01/05-16:37:31.939 2230 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
