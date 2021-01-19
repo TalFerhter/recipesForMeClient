@@ -101,7 +101,11 @@ class WordsList extends Component {
   ];
 
   handleChange(event) {
+    if (event.target.value == ''){
+      this.state.value = undefined;
+    } else {
     this.state.value = event.target.value;
+    }
   }
 
   getWords = () => {
@@ -158,21 +162,21 @@ class WordsList extends Component {
             </Form.Item>
             <Form.Item name="RecipeName" label="Recipe Name">
               <Input
-                onChange={(value) => {
-                  this.setState({ recipeName: value });
+                onChange={(event) => {
+                  this.setState({ recipeName: event.target.value });
                 }}
                 id="recipeName"
               />
             </Form.Item>
-            <Form.Item name="min-yield" label="Row">
+            <Form.Item name="row" label="Row">
               <InputNumber
                 onChange={(value) => {
                   this.setState({ row: value });
                 }}
-                id="yieldMin"
+                id="row"
               />
             </Form.Item>
-            <Form.Item name="max-column" label="Col">
+            <Form.Item name="col" label="Col">
               <InputNumber
                 onChange={(value) => {
                   this.setState({ col: value });
@@ -181,7 +185,9 @@ class WordsList extends Component {
               />
             </Form.Item>
           </Form>
-          <input type="submit" onClick={this.getWords}></input>
+          <Button type="primary" htmlType="submit" onClick={this.getWords}>
+                Submit
+              </Button>
           <div>
             <ul>
               <Table

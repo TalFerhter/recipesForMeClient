@@ -108,7 +108,7 @@ class FindRecipe extends Component {
 
   getRecipe = (values) => {
     let words = [];
-    values.searchWords.map((word) => {
+    values.searchWords && values.searchWords.map((word) => {
       words.push(word.word);
     });
     let params = {
@@ -166,7 +166,11 @@ class FindRecipe extends Component {
     const target = event.target;
     const name = target.id;
     const value = target.value;
+    if (value == ''){
+      this.setState({ [name]: undefined });
+    } else {
     this.setState({ [name]: value });
+    }
     this.setState({ alertVisible: false });
   };
 
@@ -207,42 +211,6 @@ class FindRecipe extends Component {
             <Form.Item name="authorName" label="Author">
               <Input onChange={this.onInputChange} id="authorName" />
             </Form.Item>
-            {/*<Form.Item
-            name="path"
-            label="Website Url"
-          >
-            <Input onChange={this.onInputChange} id="path" />
-          </Form.Item>
-          <Form.Item name="date" label="Publish date">
-            <DatePicker
-              showTime
-              format="DD-MM-YYYY"
-              onChange={(date, dateString) =>
-                this.onPickerChange(date, dateString, "date")
-              }
-            />
-          </Form.Item>
-          <Form.Item name="cookTime" label="Cooking time">
-            <TimePicker
-              onChange={(date, dateString) =>
-                this.onPickerChange(date, dateString, "cookTime")
-              }
-            />
-          </Form.Item>
-          <Form.Item name="prepTime" label="Preperation time">
-            <TimePicker
-              onChange={(date, dateString) =>
-                this.onPickerChange(date, dateString, "prepTime")
-              }
-            />
-          </Form.Item>
-          <Form.Item name="totalTime" label="Total time">
-            <TimePicker
-              onChange={(date, dateString) =>
-                this.onPickerChange(date, dateString, "totalTime")
-              }
-            />
-            </Form.Item>*/}
             <Form.Item name="min-yield" label="Min Yield">
               <InputNumber
                 onChange={(value) => {

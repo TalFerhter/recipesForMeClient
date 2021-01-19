@@ -13,7 +13,6 @@ class WordContext extends Component {
       value: "",
       options: [],
       visible: false,
-      confirmLoading: false,
       text: "",
     };
 
@@ -25,23 +24,16 @@ class WordContext extends Component {
 
   showModal() {
     this.state.visible = true;
-    //this.state.text =
-
     this.getRecipeByLocation(this.props.wordContext);
   }
 
   handleCancel() {
     console.log("Clicked cancel button");
-    this.state.visible = false;
+    this.setState({visible: false});
   }
 
   handleOk() {
-    //setModalText('The modal will be closed after two seconds');
-    this.state.confirmLoading = true;
-    setTimeout(() => {
-      this.state.visible = false;
-      this.state.confirmLoading = false;
-    }, 1000);
+    this.setState({visible: false});
   }
 
   getRecipeByLocation(recipeId) {
@@ -79,10 +71,9 @@ class WordContext extends Component {
           Context
         </Button>
         <Modal
-          title="Title"
+          title="Context"
           visible={this.state.visible}
           onCancel={this.handleCancel}
-          confirmLoading={this.state.confirmLoading}
           onOk={this.handleOk}
         >
           <p>{this.state.text}</p>
